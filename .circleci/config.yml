@@ -16,16 +16,7 @@ jobs:
            command: |
              echo "123cbe!@#" | sudo docker login -u "swathithangaraj" --password-stdin
                sudo docker push $IMAGE_NAME:latest
-jobs:
-  deploy-job:
-    docker:
-      - image: $IMAGE_NAME:latest
-    working_directory: /tmp/my-project  
-    steps:
-      - run:
-          name: Deploy Master to cluster
-          command: |
-            kubectl create -f deployment.yaml
+
 workflows:
   version: 2
   build-master:
